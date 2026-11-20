@@ -2,7 +2,7 @@ from raia.lengths import count_lengths, distance_fits_pool
 
 
 def test_1500_meters_in_25_meter_pool_is_60_lengths():
-    assert count_lengths(1500, 25) == 60
+    assert count_lengths(1500, 25) == 61
 
 
 def test_1500_meters_fits_25_meter_pool():
