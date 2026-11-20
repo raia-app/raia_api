@@ -1,0 +1,37 @@
+# Ficha do projeto: nome, versão e versão mínima do Python.
+[project]
+name = "raia_api"
+# Versão:MAJOR.MINOR.PATCH
+version = "0.0.1"
+description = "API da Raia, app de registro de treinos de natação."
+requires-python = ">=3.15"
+# Bibliotecas que a Raia precisa para funcionar.
+dependencies = []
+
+# Ferramentas usadas só durante o desenvolvimento.
+# Para instalar: python -m pip install --group dev
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+# Onde o pytest procura os testes e onde fica o código da Raia.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+# O PEP 8 recomenda no máximo 79 caracteres por linha.
+line-length = 79
+
+[tool.ruff.lint]
+# E, W: estilo do PEP 8. F: erros prováveis. I: ordem dos imports.
+# N: nomes do PEP 8. D: docstrings do PEP 257. B: armadilhas comuns.
+# SIM: código que pode ser mais simples. C90: funções complexas demais.
+select = ["E", "W", "F", "I", "N", "D", "B", "SIM", "C90"]
+
+# As docstrings seguem o formato do PEP 257.
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
+
+# Nos testes, o nome da função já descreve a regra, então não exige docstring.
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
