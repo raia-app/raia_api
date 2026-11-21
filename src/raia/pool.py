@@ -11,3 +11,14 @@ class PoolLength:
                 "O tamanho da piscina precisa ser maior que zero."
             )
         self.meters = meters
+
+
+    def count_lengths(self, distance_in_meters):
+        """Devolve quantos comprimentos desta piscina cabem na distância."""
+        return distance_in_meters / self.meters
+
+
+    def fits(self, distance_in_meters):
+        """Diz se a distância corresponde a um número interiro de comprimentos."""
+        return distance_in_meters % self.meters == 0
+    
