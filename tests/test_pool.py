@@ -27,3 +27,11 @@ def test_1510_meters_does_not_fit_25_meter_pool():
 
 def test_1500_meters_fits_25_meter_pool():
     assert PoolLength(25).fits(1500)
+
+
+def test_1500_meters_in_50_meter_pool_is_30_lengths():
+    assert PoolLength(50).count_lengths(1500) == 30
+
+
+def test_1510_meters_in_25_meter_pool_is_60_point_4_lengths():
+    assert PoolLength(25).count_lengths(1510) == 60.4
