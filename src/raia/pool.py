@@ -19,6 +19,5 @@ class PoolLength:
 
 
     def fits(self, distance_in_meters):
-        """Diz se a distância corresponde a um número interiro de comprimentos."""
+        """Diz se a distância corresponde a um número inteiro."""
         return distance_in_meters % self.meters == 0
-    
