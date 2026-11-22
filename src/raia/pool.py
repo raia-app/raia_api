@@ -1,16 +1,20 @@
 """Tamanho da piscina."""
 
+from dataclasses import dataclass
 
+
+@dataclass(frozen=True)
 class PoolLength:
     """O tamanho de uma piscina, em metros."""
 
-    def __init__(self, meters):
-        """Cria a piscina, recusando tamanhos que não existem."""
-        if meters <= 0:
+    meters:int
+
+    def __post_init__(self):
+        """Recusa tamanhos de piscina que não existem."""
+        if self.meters <= 0:
             raise ValueError(
                 "O tamanho da piscina precisa ser maior que zero."
             )
-        self.meters = meters
 
 
     def count_lengths(self, distance_in_meters):
