@@ -43,4 +43,3 @@ def test_pool_length_cannot_be_changed_after_creation():
     pool = PoolLength(25)
     with pytest.raises(dataclasses.FrozenInstanceError):
         pool.meters = 0
-        
