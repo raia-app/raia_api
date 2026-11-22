@@ -1,3 +1,5 @@
+import dataclasses
+
 import pytest
 
 from raia.pool import PoolLength
@@ -35,3 +37,9 @@ def test_1500_meters_in_50_meter_pool_is_30_lengths():
 
 def test_1510_meters_in_25_meter_pool_is_60_point_4_lengths():
     assert PoolLength(25).count_lengths(1510) == 60.4
+
+
+def test_pool_length_cannot_be_changed_after_creation():
+    pool = PoolLength(25)
+    with pytest.raises(dataclasses.FrozenInstanceError):
+        pool.meters = 0
